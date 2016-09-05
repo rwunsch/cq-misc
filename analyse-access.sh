@@ -113,7 +113,7 @@ echo "------------------------------"
 echo
 echo "Hourly"
 echo
-tmp=`mktemp -t $BN`
+tmp=`mktemp -t $BN.XXXXXX`
 for f in $@
 do
 	if [ -f $f ]
@@ -135,7 +135,7 @@ echo "------------"
 echo
 echo Overall
 echo
-tmp=`mktemp -t $BN`
+tmp=`mktemp -t $BN.XXXXXX`
 for f in $@
 do
 	if [ -f $f ]
@@ -149,7 +149,7 @@ rm $tmp
 echo
 echo "Daily"
 echo
-tmp=`mktemp -t $BN`
+tmp=`mktemp -t $BN.XXXXXX`
 for f in $@
 do
 	if [ -f $f ]
@@ -167,9 +167,9 @@ echo "----------------"
 echo
 echo over 1 minute
 echo
-tmp=`mktemp -t $BN`
-tmp2=`mktemp -t $BN`
-tmp3=`mktemp -t $BN`
+tmp=`mktemp -t $BN.XXXXXX`
+tmp2=`mktemp -t $BN.XXXXXX`
+tmp3=`mktemp -t $BN.XXXXXX`
 for f in $@
 do
 	if [ -f $f ]
@@ -200,9 +200,9 @@ rm $tmp3
 echo
 echo "Over 10 minutes"
 echo
-tmp=`mktemp -t $BN`
-tmp2=`mktemp -t $BN`
-tmp3=`mktemp -t $BN`
+tmp=`mktemp -t $BN.XXXXXX`
+tmp2=`mktemp -t $BN.XXXXXX`
+tmp3=`mktemp -t $BN.XXXXXX`
 for f in $@
 do
 	if [ -f $f ]
@@ -238,7 +238,7 @@ echo "-----------"
 echo
 echo overall
 echo
-tmp=`mktemp -t $BN`
+tmp=`mktemp -t $BN.XXXXXX`
 for f in $@
 do
 	if [ -f $f ]
@@ -250,8 +250,8 @@ sort $tmp | uniq -c | sort -nr | head -n 20 | awk '{print "    "$0}'
 rm $tmp
 
 #Additional paths of interest
-tmp=`mktemp -t $BN`
-tmp2=`mktemp -t $BN`
+tmp=`mktemp -t $BN.XXXXXX`
+tmp2=`mktemp -t $BN.XXXXXX`
 for p in $@
 do
 	if [ ! -f $p ]
